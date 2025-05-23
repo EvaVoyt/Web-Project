@@ -238,7 +238,7 @@ SAMPLE_QUIZZES = [
     }
 ]
 
-# Инициализация приложения
+
 app = FastAPI(title="School Quiz App", version="1.0")
 app.add_middleware(
     CORSMiddleware,
@@ -248,7 +248,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Пути к статике и шаблонам
+
 static_dir = Path("static")
 static_dir.mkdir(exist_ok=True)
 
