@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card p-4 text-center">
+            <h2 class="mb-4">Добро пожаловать в онлайн-квиз!</h2>
+            <img src="/static/lyceum1535.jpg"
+                 alt="Фото здания лицея"
+                 class="img-fluid rounded shadow-sm mb-4"
+                 style="max-width: 60%; height: auto;">
+            <p class="lead">Проверьте свои знания о лицеях и истории образования.</p>
+            {% if user %}
+                <a href="/quizzes" class="btn btn-school btn-lg">Выбрать тест</a>
+            {% else %}
+                <div class="alert alert-info mt-3">
+                    Пожалуйста, <a href="/login" class="alert-link">войдите</a> или
+                    <a href="/register" class="alert-link">зарегистрируйтесь</a>, чтобы начать.
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

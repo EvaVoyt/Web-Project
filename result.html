@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card p-4 text-center">
+            <h3 class="mb-4">Результаты теста "{{ quiz_title }}"</h3>
+            <h4>Вы набрали {{ score }} из {{ total }} баллов</h4>
+            <div class="progress mb-4" style="height: 30px;">
+                <div class="progress-bar bg-success" role="progressbar" style="width: {{ percentage }}%">
+                    {{ percentage }}%
+                </div>
+            </div>
+            {% if personality %}
+            <div class="alert alert-info">
+                <h4>{{ personality }}</h4>
+            </div>
+            {% endif %}
+            {% if percentage >= 80 %}
+            <div class="alert alert-success">Отлично! Вы отлично разбираетесь в теме!</div>
+            {% elif percentage >= 50 %}
+            <div class="alert alert-warning">Хорошо! Можно попробовать ещё лучше!</div>
+            {% else %}
+            <div class="alert alert-danger">Попробуйте ещё! Вы сможете лучше!</div>
+            {% endif %}
+            <div class="mt-4">
+                <a href="/quizzes" class="btn btn-outline-primary me-2">Выбрать другой тест</a>
+                <a href="/profile" class="btn btn-outline-secondary">Профиль</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
